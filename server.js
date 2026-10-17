@@ -13,8 +13,9 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const ROOT = __dirname;
-const DATA_DIR = path.join(ROOT, 'data');
-const UPLOAD_DIR = path.join(ROOT, 'uploads');
+// Pastas configuráveis para armazenamento persistente.
+const DATA_DIR = process.env.DATA_DIR || path.join(ROOT, 'data');
+const UPLOAD_DIR = process.env.UPLOAD_DIR || path.join(ROOT, 'uploads');
 fs.mkdirSync(DATA_DIR, { recursive: true });
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
